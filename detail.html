@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세 페이지</title>
     <link rel="stylesheet" href="styles.css"> <!-- 외부 CSS 파일 링크 -->
+    <style>
+        /* 스타일 시트에 추가된 스타일 */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
     <script>
         // URL에서 쿼리 매개변수(id) 읽기
         function getParameterByName(name, url) {
@@ -43,12 +57,19 @@
                         break;
                 }
             }
+
+            // 뒤로가기 버튼 클릭 시 이벤트 처리
+            var backButton = document.getElementById('backButton');
+            backButton.addEventListener('click', function() {
+                history.back(); // 브라우저의 이전 페이지로 이동
+            });
         };
     </script>
 </head>
 <body>
     <header>
         <h1>상세 페이지</h1>
+        <button id="backButton" class="back-button">뒤로 가기</button>
     </header>
     <main>
         <article>
