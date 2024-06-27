@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세 페이지</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 외부 CSS 파일 링크 -->
+    <script>
+        // URL에서 쿼리 매개변수(id) 읽기
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // 페이지 로드 시 실행될 함수
+        window.onload = function() {
+            var id = getParameterByName('id');
+            if (id) {
+                // id에 따라 적절한 내용 표시
+                var titleElement = document.querySelector('h1');
+                var contentElement = document.querySelector('article p');
+                switch (id) {
+                    case '1':
+                        titleElement.textContent = '업데이트 내역 v1';
+                        contentElement.textContent = '최신 업데이트 내역을 확인하세요.';
+                        break;
+                    case '2':
+                        titleElement.textContent = '업데이트 내역 v2';
+                        contentElement.textContent = '다양한 기능이 추가되었습니다.';
+                        break;
+                    case '3':
+                        titleElement.textContent = '업데이트 내역 v3';
+                        contentElement.textContent = '보안 및 성능 개선사항이 포함되었습니다.';
+                        break;
+                    default:
+                        titleElement.textContent = '상세 페이지';
+                        contentElement.textContent = '해당하는 내용이 없습니다.';
+                        break;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1>상세 페이지</h1>
+    </header>
+    <main>
+        <article>
+            <h2></h2>
+            <p></p>
+        </article>
+    </main>
+</body>
+</html>
