@@ -11,12 +11,17 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+            background-color: transparent; /* 투명 배경 */
+            color: black; /* 기본 아이콘 색상 */
+            padding: 10px;
             border: none;
-            border-radius: 5px;
+            font-size: 24px; /* 아이콘 크기 */
             cursor: pointer;
+            outline: none;
+            transition: color 0.3s; /* 색상 변화에 부드러운 전환 효과 추가 */
+        }
+        .back-button:hover {
+            color: #388E3C; /* 호버 시 색상 */
         }
     </style>
     <script>
@@ -69,7 +74,7 @@
 <body>
     <header>
         <h1>상세 페이지</h1>
-        <button id="backButton" class="back-button">뒤로 가기</button>
+        <button id="backButton" class="back-button">&#8592;</button> <!-- 왼쪽 화살표 아이콘 -->
     </header>
     <main>
         <article>
